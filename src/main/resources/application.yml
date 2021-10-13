@@ -1,0 +1,73 @@
+server:
+  port: 8841
+
+spring:
+  profiles:
+    active: "local"
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/slurmweb?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+    username: slurmweb
+    password: WCTGUL
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+      enabled: true
+
+storage:
+  model-directory: C:\\Users\\sbzmpp\\Desktop\\slurmweb-examples\\
+  data-directory: C:\\Users\\sbzmpp\\Desktop\\slurmweb-data\\
+
+scanners:
+  model-refresh-frequency: 10000
+  completed-job-frequency: 10000
+  start-job-frequency: 20000
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql.cs.nott.ac.uk/pszaj_slurmweb?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+    username: pszaj_slurmweb
+    password: WCTGUL
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+      enabled: true
+
+storage:
+  model-directory: /home/psyhw4/slurmweb-examples-master/slurmweb-examples-master/
+  data-directory: /path/to/cache
+
+scanners:
+  model-refresh-frequency: 60000
+  completed-job-frequency: 10000
+  start-job-frequency: 20000

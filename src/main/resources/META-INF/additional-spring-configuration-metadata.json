@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "storage.data-directory",
+      "type": "java.lang.String",
+      "description": "Directory for job input and output storage"
+    },
+    {
+      "name": "storage.model-directory",
+      "type": "java.lang.String",
+      "description": "Directory in which model JSON files are located"
+    },
+    {
+      "name": "scanners.model-refresh-frequency",
+      "type": "java.lang.String",
+      "description": "Frequency with which to scan for new or altered model JSON"
+    },
+    {
+      "name": "scanners.completed-job-frequency",
+      "type": "java.lang.String",
+      "description": "Frequency with which to parse the slurm queue for potentially completed jobs"
+    },
+    {
+      "name": "scanners.start-job-frequency",
+      "type": "java.lang.String",
+      "description": "Frequency with which to scan pending jobs to start with slurm"
+    }
+  ] }
